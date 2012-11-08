@@ -69,6 +69,24 @@ namespace OpenQA.Selenium
         void GoToUrl(Uri url);
 
         /// <summary>
+        /// Load a new web page in the current browser window.
+        /// Authenticating with credentials provided
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        void GoToUrl(Uri url, string username, string password);
+
+        /// <summary>
+        /// Load a new web page in the current browser window.
+        /// Authenticating with credentials provided
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        void GoToUrl(string url, string username, string password);
+
+        /// <summary>
         /// Refreshes the current page.
         /// </summary>
         void Refresh();

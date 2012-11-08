@@ -760,6 +760,53 @@ namespace OpenQA.Selenium.Support.Events
             }
 
             #region INavigation Members
+            public void GoToUrl(Uri url, string username, string password)
+            {
+                if (url == null)
+                {
+                    throw new ArgumentNullException("url", "url cannot be null");
+                }
+
+                if (url == null)
+                {
+                    throw new ArgumentNullException("username", "username cannot be null");
+                }
+
+                if (url == null)
+                {
+                    throw new ArgumentNullException("password", "password cannot be null");
+                }
+
+                try
+                {
+                    WebDriverNavigationEventArgs e = new WebDriverNavigationEventArgs(this.parentDriver, url.ToString());
+                    this.parentDriver.OnNavigating(e);
+                    this.wrappedNavigation.GoToUrl(url, username, password);
+                    this.parentDriver.OnNavigated(e);
+                }
+                catch (Exception ex)
+                {
+                    this.parentDriver.OnException(new WebDriverExceptionEventArgs(this.parentDriver, ex));
+                    throw;
+                }
+            }
+
+            public void GoToUrl(string url, string username, string password)
+            {
+                try
+                {
+                    WebDriverNavigationEventArgs e = new WebDriverNavigationEventArgs(this.parentDriver, url);
+                    this.parentDriver.OnNavigating(e);
+                    this.wrappedNavigation.GoToUrl(url, username, password);
+                    this.parentDriver.OnNavigated(e);
+                }
+                catch (Exception ex)
+                {
+                    this.parentDriver.OnException(new WebDriverExceptionEventArgs(this.parentDriver, ex));
+                    throw;
+                }
+            }
+
             /// <summary>
             /// Move the browser back
             /// </summary>

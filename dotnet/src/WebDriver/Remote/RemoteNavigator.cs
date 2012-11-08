@@ -66,6 +66,20 @@ namespace OpenQA.Selenium.Remote
 
         /// <summary>
         /// Navigate to a url for your test
+        /// using Basic Authentication with the credentials provided
+        /// </summary>
+        /// <param name="url">String of where you want the browser to go to</param>
+        /// <param name="username"> </param>
+        /// <param name="password"> </param>
+        public void GoToUrl(string url, string username, string password)
+        {
+            this.driver.UserName = username;
+            this.driver.Password = password;
+            this.driver.Url = url;
+        }
+
+        /// <summary>
+        /// Navigate to a url for your test
         /// </summary>
         /// <param name="url">Uri object of where you want the browser to go to</param>
         public void GoToUrl(Uri url)
@@ -75,6 +89,35 @@ namespace OpenQA.Selenium.Remote
                 throw new ArgumentNullException("url", "URL cannot be null.");
             }
 
+            this.driver.Url = url.ToString();
+        }
+
+        /// <summary>
+        /// Navigate to a url for your test 
+        /// using Basic Authentication with the credentials provided
+        /// </summary>
+        /// <param name="url">Uri object of where you want the browser to go to</param>
+        /// <param name="username"> </param>
+        /// <param name="password"> </param>
+        public void GoToUrl(Uri url, string username, string password)
+        {
+            if (url == null)
+            {
+                throw new ArgumentNullException("url", "URL cannot be null.");
+            }
+
+            if (username == null)
+            {
+                throw new ArgumentNullException("username", "username cannot be null.");
+            }
+
+            if (password == null)
+            {
+                throw new ArgumentNullException("password", "password cannot be null.");
+            }
+
+            this.driver.UserName = username;
+            this.driver.Password = password;
             this.driver.Url = url.ToString();
         }
 

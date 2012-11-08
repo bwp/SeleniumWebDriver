@@ -119,6 +119,16 @@ namespace OpenQA.Selenium.Remote
 
         #region IWebDriver Properties
         /// <summary>
+        /// 
+        /// </summary>
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Password { get; set; }
+
+        /// <summary>
         /// Gets or sets the URL the browser is currently displaying.
         /// </summary>
         /// <seealso cref="IWebDriver.Url"/>
