@@ -27,6 +27,7 @@ enum CommandType {
   Close,
   Quit,
   Get,
+  AuthenticatedGet,
   GoBack,
   GoForward,
   Refresh,

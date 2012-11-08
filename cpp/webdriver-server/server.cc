@@ -612,6 +612,7 @@ void Server::PopulateCommandRepository() {
   this->commands_["/session/:sessionid/window_handles"]["GET"] = GetWindowHandles;
   this->commands_["/session/:sessionid/url"]["GET"] = GetCurrentUrl;
   this->commands_["/session/:sessionid/url"]["POST"] = Get;
+  this->commands_["/session/:sessionid/url"]["POST"] = AuthenticatedGet;
   this->commands_["/session/:sessionid/forward"]["POST"] = GoForward;
   this->commands_["/session/:sessionid/back"]["POST"] = GoBack;
   this->commands_["/session/:sessionid/refresh"]["POST"] = Refresh;
