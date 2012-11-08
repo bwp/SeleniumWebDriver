@@ -97,12 +97,12 @@ namespace OpenQA.Selenium.Remote
 
             CommandInfo info = CommandInfoRepository.Instance.GetCommandInfo(commandToExecute.Name);
             HttpWebRequest request = info.CreateWebRequest(this.remoteServerUri, commandToExecute);
-            if (commandToExecute.Name == "get" || commandToExecute.Name == "post")
-            {
-                object username;
-                object password;
-                commandToExecute.Parameters.TryGetValue("password", out password);
-                commandToExecute.Parameters.TryGetValue("username", out username);
+            //if (commandToExecute.Name == "get" || commandToExecute.Name == "post")
+            //{
+            //    object username;
+            //    object password;
+            //    commandToExecute.Parameters.TryGetValue("password", out password);
+            //    commandToExecute.Parameters.TryGetValue("username", out username);
             //    if (username != null && password != null)
             //    {
             //        commandToExecute.Parameters.Remove("password");
@@ -125,7 +125,7 @@ namespace OpenQA.Selenium.Remote
             //            throw new ArgumentNullException("commandToExecute", "parameter url is null");
             //        }
             //    }
-            }
+            //}
             request.Timeout = (int)this.serverResponseTimeout.TotalMilliseconds;
             request.Accept = RequestAcceptHeader;
             request.KeepAlive = this.enableKeepAlive;
