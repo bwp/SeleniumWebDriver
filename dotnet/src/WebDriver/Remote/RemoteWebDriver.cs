@@ -152,6 +152,12 @@ namespace OpenQA.Selenium.Remote
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("url", value);
 
+                if (!String.IsNullOrEmpty(this.Password) && !(string.IsNullOrEmpty(this.UserName)))
+                {
+                    parameters.Add("username", this.UserName);
+                    parameters.Add("password", this.Password);
+                }
+
                 try
                 {
                     this.Execute(DriverCommand.Get, parameters);
