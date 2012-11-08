@@ -279,6 +279,35 @@ int Browser::NavigateToUrl(const std::string& url) {
   return SUCCESS;
 }
 
+int Browser::NavigateToUrl(const std::string& url, const std::string& username, const std::string& password) {
+  LOG(TRACE) << "Entring Browser::NavigateToUrl";
+
+  std::wstring wide_url = CA2W(url.c_str(), CP_UTF8);
+  CComVariant url_variant(wide_url.c_str());
+
+  std::wstring wide_header = CA2W("Authorization: Basic ", CP_UTF8);
+  wide_header.append(CA2W(username.c_str(), CP_UTF8));
+  wide_header.append(CA2W(":", CP_UTF8));
+  wide_header.append(CA2W(password.c_str(), CP_UTF8));
+  CComVariant header_variant(wide_header.c_str());
+
+  CComVariant dummy;
+
+  // TODO: check HRESULT for error
+  HRESULT hr = this->browser_->Navigate2(&url_variant,
+                                         &dummy,
+                                         &dummy,
+                                         &dummy,
+                                         &header_variant);
+  if (FAILED(hr)) {
+    LOGHR(WARN, hr) << "Call to IWebBrowser2::Navigate2 failed";
+    return EUNHANDLEDERROR;
+  }
+
+  this->set_wait_required(true);
+  return SUCCESS;
+}
+
 int Browser::NavigateBack() {
   LOG(TRACE) << "Entering Browser::NavigateBack";
   LPSTREAM stream;
