@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>about:buildconfig</title>
+  <link rel="stylesheet" href="chrome://global/skin/about.css" type="text/css">
+  <style type="text/css">
+    th { text-align: start; }
+    h2 { margin-top: 1.5em; }
+    th, td { vertical-align: top; }
+  </style>
+</head>
+<body class="aboutPageWideContainer">
+<h1>about:buildconfig</h1>
+<h2>Build Machine</h2>
+<p>w64-ix-slave105</p>
+<h2>Source</h2>
+<p>Built from <a href="http://hg.mozilla.org/releases/mozilla-release/rev/0b774a1067fe">http://hg.mozilla.org/releases/mozilla-release/rev/0b774a1067fe</a></p>
+<h2>Build platform</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>target</th>
+    </tr>
+    <tr>
+      <td>i686-pc-mingw32</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Build tools</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>Compiler</th>
+      <th>Version</th>
+      <th>Compiler flags</th>
+    </tr>
+    <tr>
+      <td>e:/builds/moz2_slave/rel-m-rel-xr-w32-bld/build/obj-firefox/_virtualenv/Scripts/python.exe -O /e/builds/moz2_slave/rel-m-rel-xr-w32-bld/build/build/cl.py cl</td>
+      <td>16.00.30319.01</td>
+      <td> -TC -nologo -W3 -Gy -Fdgenerated.pdb -we4553  -DNDEBUG -DTRIMMED -Zi -UDEBUG -DNDEBUG -O1 -Oy</td>
+    </tr>
+    <tr>
+      <td>e:/builds/moz2_slave/rel-m-rel-xr-w32-bld/build/obj-firefox/_virtualenv/Scripts/python.exe -O /e/builds/moz2_slave/rel-m-rel-xr-w32-bld/build/build/cl.py cl</td>
+      <td>16.00.30319.01</td>
+      <td> -TP -nologo -W3 -Gy -Fdgenerated.pdb -wd4800 -we4553  -DNDEBUG -DTRIMMED -Zi -UDEBUG -DNDEBUG -O1 -Oy </td>
+    </tr>
+  </tbody>
+</table>
+<h2>Configure arguments</h2>
+<p>--enable-application=xulrunner --enable-jemalloc --disable-tests</p>
+</body>
+</html>
