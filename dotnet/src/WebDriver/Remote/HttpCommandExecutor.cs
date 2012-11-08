@@ -125,7 +125,7 @@ namespace OpenQA.Selenium.Remote
             //            throw new ArgumentNullException("commandToExecute", "parameter url is null");
             //        }
             //    }
-            //}
+            }
             request.Timeout = (int)this.serverResponseTimeout.TotalMilliseconds;
             request.Accept = RequestAcceptHeader;
             request.KeepAlive = this.enableKeepAlive;
