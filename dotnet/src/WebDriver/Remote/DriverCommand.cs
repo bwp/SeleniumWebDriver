@@ -64,6 +64,11 @@ namespace OpenQA.Selenium.Remote
         public static readonly string Get = "get";
 
         /// <summary>
+        /// Represents a Get command thats Authenticated
+        /// </summary>
+        public static readonly string AuthenticatedGet = "authenticatedGet";
+
+        /// <summary>
         /// Represents a Browser going back command
         /// </summary>
         public static readonly string GoBack = "goBack";

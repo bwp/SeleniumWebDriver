@@ -97,35 +97,6 @@ namespace OpenQA.Selenium.Remote
 
             CommandInfo info = CommandInfoRepository.Instance.GetCommandInfo(commandToExecute.Name);
             HttpWebRequest request = info.CreateWebRequest(this.remoteServerUri, commandToExecute);
-            //if (commandToExecute.Name == "get" || commandToExecute.Name == "post")
-            //{
-            //    object username;
-            //    object password;
-            //    commandToExecute.Parameters.TryGetValue("password", out password);
-            //    commandToExecute.Parameters.TryGetValue("username", out username);
-            //    if (username != null && password != null)
-            //    {
-            //        commandToExecute.Parameters.Remove("password");
-            //        commandToExecute.Parameters.Remove("username");
-            //        string usernamePassword = username.ToString() + ":" + password.ToString();
-            //        CredentialCache mycache = new CredentialCache();
-            //        object url;
-            //        commandToExecute.Parameters.TryGetValue("url", out url);
-            //        if (url != null)
-            //        {
-            //            mycache.Add(new Uri(url.ToString()), "Basic", new NetworkCredential(username.ToString(), password.ToString()));
-            //            request.Credentials = mycache;
-            //            request.Headers.Add("Authorization",
-            //                                "Basic " +
-            //                                Convert.ToBase64String(new ASCIIEncoding().GetBytes(usernamePassword)));
-            //            request.PreAuthenticate = true;
-            //        }
-            //        else
-            //        {
-            //            throw new ArgumentNullException("commandToExecute", "parameter url is null");
-            //        }
-            //    }
-            //}
             request.Timeout = (int)this.serverResponseTimeout.TotalMilliseconds;
             request.Accept = RequestAcceptHeader;
             request.KeepAlive = this.enableKeepAlive;
