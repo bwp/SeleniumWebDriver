@@ -712,6 +712,7 @@ void IECommandExecutor::PopulateCommandHandlers() {
   this->command_handlers_[SwitchToWindow] = CommandHandlerHandle(new SwitchToWindowCommandHandler);
   this->command_handlers_[SwitchToFrame] = CommandHandlerHandle(new SwitchToFrameCommandHandler);
   this->command_handlers_[Get] = CommandHandlerHandle(new GoToUrlCommandHandler);
+  this->command_handlers_[AuthenticatedGet] = CommandHandlerHandle(new GoToUrlCommandHandler);
   this->command_handlers_[GoForward] = CommandHandlerHandle(new GoForwardCommandHandler);
   this->command_handlers_[GoBack] = CommandHandlerHandle(new GoBackCommandHandler);
   this->command_handlers_[Refresh] = CommandHandlerHandle(new RefreshCommandHandler);

@@ -178,6 +178,11 @@ int HtmlDialog::NavigateToUrl(const std::string& url) {
   return ENOTIMPLEMENTED;
 }
 
+int HtmlDialog::NavigateToUrl(const std::string& url, const std::string& username, const std::string& password) {
+  // Cannot force navigation on windows opened with showModalDialog();
+  return ENOTIMPLEMENTED;
+}
+
 int HtmlDialog::NavigateBack() {
   // Cannot force navigation on windows opened with showModalDialog();
   return ENOTIMPLEMENTED;

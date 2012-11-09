@@ -102,8 +102,8 @@ class Browser : public DocumentHost, public IDispEventSimpleImpl<1, Browser, &DI
   void SetWidth(long width);
   void SetHeight(long height);
 
-  int NavigateToUrl(const std::string& url, const std::string& username, const std::string& password);
   int NavigateToUrl(const std::string& url);
+  int NavigateToUrl(const std::string& url, const std::string& username, const std::string& password);
   int NavigateBack(void);
   int NavigateForward(void);
   int Refresh(void);

@@ -34,6 +34,8 @@ class GoToUrlCommandHandler : public IECommandHandler {
                        const ParametersMap& command_parameters,
                        Response* response) {
     ParametersMap::const_iterator url_parameter_iterator = command_parameters.find("url");
+	ParametersMap::const_iterator username_parameter_iterator = command_parameters.find("username");
+	ParametersMap::const_iterator password_parameter_iterator = command_parameters.find("password");
     if (url_parameter_iterator == command_parameters.end()) {
       response->SetErrorResponse(400, "Missing parameter: url");
       return;
@@ -47,7 +49,18 @@ class GoToUrlCommandHandler : public IECommandHandler {
 
       // TODO: check result for error
       std::string url = url_parameter_iterator->second.asString();
-      status_code = browser_wrapper->NavigateToUrl(url);
+
+	  	  // If username and password were passed as a parameter
+	  if(username_parameter_iterator != command_parameters.end() && password_parameter_iterator != command_parameters.end())
+	  {
+		  std::string username = username_parameter_iterator->second.asString();
+		  std::string password = password_parameter_iterator->second.asString();
+
+		  status_code = browser_wrapper->NavigateToUrl(url, username, password);
+	  }else{
+		status_code = browser_wrapper->NavigateToUrl(url);
+	  }
+
       if (status_code != SUCCESS) {
         response->SetErrorResponse(status_code, "Failed to navigate to "
                                                     + url
